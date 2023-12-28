@@ -1,0 +1,136 @@
+﻿@model List<final.Models.Donors>
+@{
+    ViewData["Title"] = "Donate";
+    Layout = "~/Views/Shared/_Layout -3.cshtml";
+}
+
+<text>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    header {
+        text-align: center;
+        animation: fadeInUp 1s ease-in-out;
+    }
+
+    @@Keyframe fadeInUp {
+     from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    section {
+        margin-top: 20px;
+    }
+
+    .donate-form {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+    /* Add your custom styles for the donors table */
+    .donors-table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+        .donors-table th,
+        .donors-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .donors-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .donors-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+</style>
+    </text>
+
+
+
+<div class="container">
+    <section class="donors-list">
+        <h2>Donors List</h2>
+
+        <table class="donors-table">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Amount</th>
+                    <th>Comment</th>
+                    <!-- Add other columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var donor in Model)
+                {
+                    <tr>
+                        <td>@donor.FullName</td>
+                        <td>@donor.Email</td>
+                        <td>@donor.Amount</td>
+                        <td>@donor.Comment</td>
+                        <!-- Add other columns as needed -->
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</div>
+
